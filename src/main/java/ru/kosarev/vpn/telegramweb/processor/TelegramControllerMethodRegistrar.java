@@ -37,6 +37,8 @@ public class TelegramControllerMethodRegistrar {
         Method method = controllerMethodPair.getRight();
 
         try {
+            log.debug("Calling method of class: {}, method: {}", controller.getClass(), methodName);
+
             method.invoke(controller, update);
         } catch (Exception e) {
             log.debug("An exception occurred during call mapping: ", e);

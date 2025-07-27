@@ -1,6 +1,7 @@
 package ru.kosarev.vpn.telegramweb.processor;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.aop.framework.AopProxyUtils;
 import org.springframework.beans.BeansException;
@@ -11,6 +12,7 @@ import ru.kosarev.vpn.telegramweb.aspect.TelegramMapping;
 
 import java.lang.reflect.Method;
 
+@Slf4j
 @Component
 @RequiredArgsConstructor
 public class TelegramControllerAnnotationProcessor implements BeanPostProcessor {
@@ -26,6 +28,8 @@ public class TelegramControllerAnnotationProcessor implements BeanPostProcessor 
             for (Method method : classMethods) {
                 if (method.isAnnotationPresent(TelegramMapping.class)) {
                     String methodSlug = method.getAnnotation(TelegramMapping.class).value();
+
+                    log.debug("Adding mapping for class: {}, methodSlug: {}", beanClass.getName(), methodSlug);
 
                     methodRegistrar.addMethodMapping(methodSlug, bean, method);
                 }
