@@ -35,3 +35,12 @@ dependencies {
 tasks.named('test') {
     useJUnitPlatform()
 }
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            groupId = 'ru.kosarev' as Publication
+            artifactId = 'spring-boot-starter-telegram-web' as Publication
+        }
+    }
+}
