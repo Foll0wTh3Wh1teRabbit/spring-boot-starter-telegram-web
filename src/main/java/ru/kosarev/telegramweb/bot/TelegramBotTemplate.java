@@ -1,6 +1,7 @@
 package ru.kosarev.telegramweb.bot;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.longpolling.interfaces.LongPollingUpdateConsumer;
@@ -9,6 +10,7 @@ import org.telegram.telegrambots.longpolling.util.LongPollingSingleThreadUpdateC
 import org.telegram.telegrambots.meta.api.objects.Update;
 import ru.kosarev.telegramweb.processor.TelegramControllerMethodRegistrar;
 
+@Slf4j
 @Component
 @RequiredArgsConstructor
 public class TelegramBotTemplate implements SpringLongPollingBot, LongPollingSingleThreadUpdateConsumer {
@@ -21,6 +23,8 @@ public class TelegramBotTemplate implements SpringLongPollingBot, LongPollingSin
     @Override
     public void consume(Update update) {
         String methodName = update.getMessage().getText();
+
+        log.debug("Received call for methodName: {}", methodName);
 
         methodRegistrar.callMethodMapping(methodName, update);
     }
