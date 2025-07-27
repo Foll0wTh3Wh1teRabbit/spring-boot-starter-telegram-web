@@ -3,6 +3,8 @@ package ru.kosarev.telegramweb.processor;
 import jakarta.annotation.PostConstruct;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.tuple.Pair;
+import org.springframework.beans.factory.config.BeanDefinition;
+import org.springframework.context.annotation.Role;
 import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.meta.api.objects.Update;
 
@@ -12,6 +14,7 @@ import java.util.Map;
 
 @Slf4j
 @Component
+@Role(BeanDefinition.ROLE_INFRASTRUCTURE)
 public class TelegramControllerMethodRegistrar {
 
     private Map<String, Pair<Object, Method>> methodMappings;
