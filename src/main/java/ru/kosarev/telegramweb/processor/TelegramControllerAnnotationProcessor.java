@@ -1,4 +1,4 @@
-package ru.kosarev.vpn.telegramweb.processor;
+package ru.kosarev.telegramweb.processor;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -7,8 +7,8 @@ import org.springframework.aop.framework.AopProxyUtils;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanPostProcessor;
 import org.springframework.stereotype.Component;
-import ru.kosarev.vpn.telegramweb.aspect.TelegramController;
-import ru.kosarev.vpn.telegramweb.aspect.TelegramMapping;
+import ru.kosarev.telegramweb.aspect.TelegramController;
+import ru.kosarev.telegramweb.aspect.TelegramMapping;
 
 import java.lang.reflect.Method;
 

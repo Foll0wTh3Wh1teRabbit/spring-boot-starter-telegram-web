@@ -1,4 +1,4 @@
-package ru.kosarev.vpn.telegramweb.bot;
+package ru.kosarev.telegramweb.bot;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
@@ -7,7 +7,7 @@ import org.telegram.telegrambots.longpolling.interfaces.LongPollingUpdateConsume
 import org.telegram.telegrambots.longpolling.starter.SpringLongPollingBot;
 import org.telegram.telegrambots.longpolling.util.LongPollingSingleThreadUpdateConsumer;
 import org.telegram.telegrambots.meta.api.objects.Update;
-import ru.kosarev.vpn.telegramweb.processor.TelegramControllerMethodRegistrar;
+import ru.kosarev.telegramweb.processor.TelegramControllerMethodRegistrar;
 
 @Component
 @RequiredArgsConstructor

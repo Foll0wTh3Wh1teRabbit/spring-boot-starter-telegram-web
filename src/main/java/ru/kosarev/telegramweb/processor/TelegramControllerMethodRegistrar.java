@@ -1,4 +1,4 @@
-package ru.kosarev.vpn.telegramweb.processor;
+package ru.kosarev.telegramweb.processor;
 
 import jakarta.annotation.PostConstruct;
 import lombok.extern.slf4j.Slf4j;

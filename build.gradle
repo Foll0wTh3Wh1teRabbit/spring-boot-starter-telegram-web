@@ -32,15 +32,27 @@ dependencies {
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
 
-tasks.named('test') {
-    useJUnitPlatform()
+jar {
+    enabled = true
+    archiveClassifier = ''
+}
+
+bootJar {
+    enabled = false
 }
 
 publishing {
     publications {
         mavenJava(MavenPublication) {
-            groupId = 'ru.kosarev' as Publication
-            artifactId = 'spring-boot-starter-telegram-web' as Publication
+            from components.java
+
+            artifactId = 'spring-boot-starter-telegram-web'
+            groupId    = project.group
+            version    = project.version
         }
+    }
+
+    repositories {
+        mavenLocal()
     }
 }

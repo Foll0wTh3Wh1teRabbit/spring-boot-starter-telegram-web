@@ -1,14 +1,14 @@
-package ru.kosarev.vpn.telegramweb.aspect;
+package ru.kosarev.telegramweb.aspect;
+
+import org.springframework.stereotype.Component;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-@Target(ElementType.METHOD)
+@Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
-public @interface TelegramMapping {
-
-    String value() default "";
-
+@Component
+public @interface TelegramController {
 }
