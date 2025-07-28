@@ -3,6 +3,7 @@ package ru.kosarev.telegramweb.bot;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.longpolling.interfaces.LongPollingUpdateConsumer;
 import org.telegram.telegrambots.longpolling.starter.SpringLongPollingBot;
@@ -12,6 +13,7 @@ import ru.kosarev.telegramweb.processor.TelegramControllerMethodRegistrar;
 
 @Slf4j
 @Component
+@ConditionalOnProperty(prefix = "spring.telegram", name = "bot-token")
 @RequiredArgsConstructor
 public class TelegramBotTemplate implements SpringLongPollingBot, LongPollingSingleThreadUpdateConsumer {
 

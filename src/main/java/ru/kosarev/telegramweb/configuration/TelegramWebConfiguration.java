@@ -1,10 +1,21 @@
 package ru.kosarev.telegramweb.configuration;
 
-import org.springframework.boot.autoconfigure.AutoConfigureOrder;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.core.Ordered;
+import ru.kosarev.telegramweb.processor.TelegramControllerAnnotationProcessor;
+import ru.kosarev.telegramweb.processor.TelegramControllerMethodRegistrar;
 
 @Configuration
-@AutoConfigureOrder(Ordered.HIGHEST_PRECEDENCE)
 public class TelegramWebConfiguration {
+
+    @Bean
+    public TelegramControllerAnnotationProcessor telegramControllerAnnotationProcessor() {
+        return new TelegramControllerAnnotationProcessor(methodRegistrar());
+    }
+
+    @Bean
+    public TelegramControllerMethodRegistrar methodRegistrar() {
+        return new TelegramControllerMethodRegistrar();
+    }
+
 }
